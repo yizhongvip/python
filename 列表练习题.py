@@ -23,23 +23,36 @@
 # print(prime)
 
 # 方法三
-prime = []
-for x in range(2, 100):
-    flag = False # 不是合数
-    edge = x ** 0.5
-    for i in prime:
-        if x % i == 0: # 找到了合数x
-            flag = True # 合数
-            break
-        if i > edge: # 找到了质数x
-            break
-    if not flag: # 找到了质数x
-        prime.append(x)
-
-print(prime)
+# prime = []
+# for x in range(2, 100):
+#     flag = False # 不是合数
+#     edge = x ** 0.5
+#     for i in prime:
+#         if x % i == 0: # 找到了合数x
+#             flag = True # 合数
+#             break
+#         if i > edge: # 找到了质数x
+#             break
+#     if not flag: # 找到了质数x
+#         prime.append(x)
+#
+# print(prime)
 
 # 方法四，大于3的素数只有6N-1和6N+1两种形式
+count = 2
+n = 100
+x = 5
+step = 2
+while x <= n:
+    for i in range(3, int(x**0.5) + 1, 2):
+        if x % i == 0:
+            break
+    else:
+        count += 1
 
+    x += step
+    step = 4 if step == 2 else 2
+print(count)
 
 
 
